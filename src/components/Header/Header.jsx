@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { ReactComponent as SearcIcon } from '../../assets/search.svg';
 import './Header.scss';
 class Header extends Component {
@@ -9,7 +10,9 @@ class Header extends Component {
     return (
       <div className='header'>
         <div className='container'>
-          <div className='logo'>Logo</div>
+          <div className='logo'>
+            <Link to='/'>Logo</Link>
+          </div>
           <div className='header__container'>
             <h1 className='header__title'>Star Wars Directory</h1>
             <h3 className='header__subtitle'>
