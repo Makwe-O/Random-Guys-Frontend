@@ -1,0 +1,29 @@
+.vertical-card {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  max-width: 24rem;
+  border-radius: 0.25rem;
+  color: #1d1d1d;
+  line-height: 1.625;
+  & img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+  }
+  &__body {
+    padding: 1.5rem 1rem;
+  }
+  &__title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  &__description {
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+  &__footer {
+    padding: 1.5rem 0;
+  }
+}

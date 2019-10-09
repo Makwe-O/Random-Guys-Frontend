@@ -1,0 +1,23 @@
+.category-section {
+  margin: 60px 0;
+
+  &__title {
+    text-align: center;
+    line-height: 1.25;
+    margin: 1rem;
+    color: #1d1d1d;
+    font-weight: 700;
+  }
+  & hr {
+    max-width: 4vw;
+    height: 0.2rem;
+    margin: auto;
+    background: #1d1d1d;
+  }
+}
+
+.view-more {
+  padding-top: 2rem;
+  max-width: 30vw;
+  margin: 0 auto;
+}
