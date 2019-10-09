@@ -1,0 +1,9 @@
+.not-found {
+  width: 50vw;
+  margin: auto;
+  text-align: center;
+  & svg {
+    width: 200px;
+    height: 30vh;
+  }
+}
