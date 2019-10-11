@@ -3,10 +3,11 @@ const INITIAL_STATE = {
 };
 const starshipsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'GET_STARSHIPS':
+    case 'GET_STARSHIPS_SUCCESS':
+      console.log('ddd');
       return {
         ...state,
-        ...action.payload
+        starships: action.payload
       };
 
     default:

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import peopleReducer from './people/people';
-import starshipsReducer from './starships/starships';
-import planetsReducer from './planets/planets';
+import peopleReducer from './peopleReducers/people';
+import starshipsReducer from './starshipsReducers/starships';
+import planetsReducer from './planetsReducers/planets';
 
 const reducers = combineReducers({
   peopleReducer,

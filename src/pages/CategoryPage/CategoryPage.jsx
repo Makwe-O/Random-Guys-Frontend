@@ -2,7 +2,6 @@ import React from 'react';
 import VerticalCard from '../../components/VerticalCard/VerticalCard';
 
 const CategoryPage = ({ match }) => {
-  console.log(match);
   return (
     <div className='container'>
       <div className='category-section'>
