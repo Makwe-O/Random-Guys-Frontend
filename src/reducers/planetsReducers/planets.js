@@ -3,10 +3,10 @@ const INITIAL_STATE = {
 };
 const planetsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'GET_PLANETS':
+    case 'GET_PLANETS_SUCCESS':
       return {
         ...state,
-        ...action.payload
+        planets: action.payload
       };
 
     default:

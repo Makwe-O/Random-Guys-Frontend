@@ -3,10 +3,10 @@ const INITIAL_STATE = {
 };
 const peopleReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'GET_PEOPLE':
+    case 'GET_PEOPLE_SUCCESS':
       return {
         ...state,
-        ...action.payload
+        people: action.payload
       };
 
     default:
