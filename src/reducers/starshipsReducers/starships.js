@@ -4,7 +4,6 @@ const INITIAL_STATE = {
 const starshipsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'GET_STARSHIPS_SUCCESS':
-      console.log('ddd');
       return {
         ...state,
         starships: action.payload

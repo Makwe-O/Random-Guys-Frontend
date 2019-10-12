@@ -25,6 +25,7 @@
   &__image {
     background: url('https://res.cloudinary.com/dnavbc7ny/image/upload/v1570656730/star%20wars/character-1.jpg');
     height: 12rem;
+    background-position: center;
     overflow: hidden;
     text-align: center;
     background-size: cover;
@@ -35,5 +36,10 @@
     justify-content: space-between;
     flex-direction: column;
     border: 1px solid #cbd5e0;
+    width: 100%;
+  }
+  &__description {
+    font-size: 0.8rem;
+    font-weight: 300;
   }
 }
