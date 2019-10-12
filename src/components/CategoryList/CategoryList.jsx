@@ -11,6 +11,7 @@ import { peopleData } from '../../selectors/peopleSelectors/people';
 import { starshipData } from '../../selectors/starshipSelectors/starship';
 import { planetData } from '../../selectors/planetSelectors/planet';
 import Skeleton from 'react-loading-skeleton';
+import { Link } from 'react-router-dom';
 
 const CategoryList = ({
   getPeople,
@@ -69,7 +70,9 @@ const CategoryList = ({
           )}
         </div>
         <div className='view-more'>
-          <button className='btn btn__full'>View More</button>
+          <Link to='/people' className='btn btn__full'>
+            View More
+          </Link>
         </div>
       </div>
 
@@ -102,7 +105,9 @@ const CategoryList = ({
           )}
         </div>
         <div className='view-more'>
-          <button className='btn btn__full'>View More</button>
+          <Link to='/planets' className='btn btn__full'>
+            View More
+          </Link>
         </div>
       </div>
 
@@ -138,7 +143,9 @@ const CategoryList = ({
           )}
         </div>
         <div className='view-more'>
-          <button className='btn btn__full'>View More</button>
+          <Link to='/people' className='btn btn__full'>
+            View More
+          </Link>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route path='/:categoryId' component={CategoryPage} />
+        <Route path='/:category' component={CategoryPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
