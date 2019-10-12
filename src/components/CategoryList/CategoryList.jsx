@@ -128,6 +128,12 @@ const CategoryList = ({
               <div>
                 <Skeleton duration={2} height={150} />
               </div>
+              <div>
+                <Skeleton duration={2} height={150} />
+              </div>
+              <div>
+                <Skeleton duration={2} height={150} />
+              </div>
             </>
           )}
         </div>
