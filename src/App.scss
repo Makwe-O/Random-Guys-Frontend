@@ -7,6 +7,10 @@ input {
   border: 0 solid #e2e8f0;
 }
 
+a {
+  display: block;
+  text-decoration: none;
+}
 .three-colum-grid {
   display: grid;
   grid-gap: 50px;
