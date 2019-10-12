@@ -20,7 +20,6 @@ const CategoryList = ({
   starshipData,
   planetData
 }) => {
-  console.log(planetData);
   useEffect(() => {
     const fetchData = async () => {
       await getStarships();
@@ -39,7 +38,13 @@ const CategoryList = ({
           {starshipData.results ? (
             starshipData.results
               .filter((data, index) => index < 6)
-              .map(data => <VerticalCard key={data.name} />)
+              .map(data => (
+                <VerticalCard
+                  key={data.name}
+                  starshipData={data}
+                  dataSource={'starship'}
+                />
+              ))
           ) : (
             <>
               <div>
@@ -75,7 +80,13 @@ const CategoryList = ({
           {planetData.results ? (
             planetData.results
               .filter((data, index) => index < 3)
-              .map(data => <VerticalCard key={data.name} />)
+              .map(data => (
+                <VerticalCard
+                  key={data.name}
+                  planetData={data}
+                  dataSource={'planet'}
+                />
+              ))
           ) : (
             <>
               <div>
@@ -102,9 +113,21 @@ const CategoryList = ({
           {peopleData.results ? (
             peopleData.results
               .filter((data, index) => index < 4)
-              .map(data => <HorizontalCard key={data.name} />)
+              .map(data => (
+                <HorizontalCard
+                  key={data.name}
+                  peopleData={data}
+                  dataSource={'people'}
+                />
+              ))
           ) : (
             <>
+              <div>
+                <Skeleton duration={2} height={150} />
+              </div>
+              <div>
+                <Skeleton duration={2} height={150} />
+              </div>
               <div>
                 <Skeleton duration={2} height={150} />
               </div>
