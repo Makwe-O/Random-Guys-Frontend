@@ -8,7 +8,7 @@ const makeRequest = (url, searchTerm, options = { method: 'GET' }) => {
   return apiInstance({
     url,
     method: options.method,
-    params: { q: searchTerm }
+    params: { search: searchTerm }
   }).then(response => response.data);
 };
 

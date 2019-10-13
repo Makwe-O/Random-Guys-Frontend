@@ -8,3 +8,10 @@ export const starshipData = createSelector(
     return starshipsReducer.starships;
   }
 );
+
+export const starshipSearchData = createSelector(
+  [selectStarship],
+  starshipsReducer => {
+    return starshipsReducer.searchResult;
+  }
+);

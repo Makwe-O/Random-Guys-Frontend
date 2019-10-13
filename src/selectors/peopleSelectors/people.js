@@ -8,3 +8,10 @@ export const peopleData = createSelector(
     return peopleReducer.people;
   }
 );
+
+export const peopleSearchData = createSelector(
+  [selectPeople],
+  peopleReducer => {
+    return peopleReducer.searchResult;
+  }
+);
