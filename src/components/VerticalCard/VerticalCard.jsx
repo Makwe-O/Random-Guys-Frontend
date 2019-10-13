@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './VerticalCard.scss';
 const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
   switch (dataSource) {
-    case 'starship':
+    case 'starships':
+      const getStarshipId = starshipData.url.split('/');
       return (
         <div className='vertical-card'>
           <img
@@ -22,12 +24,15 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
               {starshipData.cost_in_credits}
             </p>
             <div className='vertical-card__footer'>
-              <button className='btn'>Read More</button>
+              <Link to={`/starships/${getStarshipId[5]}`} className='btn'>
+                Read More
+              </Link>
             </div>
           </div>
         </div>
       );
-    case 'planet':
+    case 'planets':
+      const getPlanetId = planetData.url.split('/');
       return (
         <div className='vertical-card'>
           <img
@@ -47,13 +52,17 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
               {planetData.diameter}
             </p>
             <div className='vertical-card__footer'>
-              <button className='btn'>Read More</button>
+              <Link to={`/planets/${getPlanetId[5]}`} className='btn'>
+                Read More
+              </Link>
             </div>
           </div>
         </div>
       );
 
     case 'people':
+      const getPeopleId = peopleData.url.split('/');
+
       return (
         <div className='vertical-card'>
           <img
@@ -73,7 +82,9 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
               {peopleData.hair_color}
             </p>
             <div className='vertical-card__footer'>
-              <button className='btn'>Read More</button>
+              <Link to={`/people/${getPeopleId[5]}`} className='btn'>
+                Read More
+              </Link>
             </div>
           </div>
         </div>

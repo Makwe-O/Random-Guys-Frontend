@@ -14,10 +14,10 @@ const CategoryPage = ({
   match,
   getCategory,
   categoryData,
-  categoryDataError,
-  history
+  categoryDataError
 }) => {
   const { category } = match.params;
+
   useEffect(() => {
     const fetchData = async () => {
       await getCategory(category);
@@ -40,7 +40,9 @@ const CategoryPage = ({
                   <VerticalCard
                     key={data.name}
                     starshipData={data}
-                    dataSource={'starship'}
+                    peopleData={data}
+                    planetData={data}
+                    dataSource={category}
                   />
                 ))
               ) : (
