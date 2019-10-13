@@ -8,3 +8,10 @@ export const planetData = createSelector(
     return planetsReducer.planets;
   }
 );
+
+export const planetSearchData = createSelector(
+  [selectPlanet],
+  planetsReducer => {
+    return planetsReducer.searchResult;
+  }
+);

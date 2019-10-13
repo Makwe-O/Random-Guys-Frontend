@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-  planets: []
+  planets: [],
+  searchResult: []
 };
 const planetsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -7,6 +8,12 @@ const planetsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         planets: action.payload
+      };
+
+    case 'SEARCH_PLANETS_SUCCESS':
+      return {
+        ...state,
+        searchResult: action.payload
       };
 
     default:
