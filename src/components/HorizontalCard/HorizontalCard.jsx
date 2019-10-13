@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HorizontalCard.scss';
 const HorizontalCard = ({ peopleData, dataSource }) => {
   switch (dataSource) {
     case 'people':
+      const getPeoplepId = peopleData.url.split('/');
       return (
         <div className='horizontal-card'>
           <div className='horizontal-card__image'></div>
@@ -18,7 +20,11 @@ const HorizontalCard = ({ peopleData, dataSource }) => {
               Hair Color: {peopleData.hair_color}
             </p>
             <div className='horizontal-card__footer'>
-              <button className='btn'>Read More</button>
+              <div>
+                <Link to={`/people/${getPeoplepId[5]}`} className='btn'>
+                  Read More
+                </Link>
+              </div>
             </div>
           </div>
         </div>

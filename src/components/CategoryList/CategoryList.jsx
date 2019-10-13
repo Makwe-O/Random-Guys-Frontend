@@ -43,7 +43,7 @@ const CategoryList = ({
                 <VerticalCard
                   key={data.name}
                   starshipData={data}
-                  dataSource={'starship'}
+                  dataSource={'starships'}
                 />
               ))
           ) : (
@@ -70,7 +70,7 @@ const CategoryList = ({
           )}
         </div>
         <div className='view-more'>
-          <Link to='/people' className='btn btn__full'>
+          <Link to='/starships' className='btn btn__full'>
             View More
           </Link>
         </div>
@@ -87,7 +87,7 @@ const CategoryList = ({
                 <VerticalCard
                   key={data.name}
                   planetData={data}
-                  dataSource={'planet'}
+                  dataSource={'planets'}
                 />
               ))
           ) : (
