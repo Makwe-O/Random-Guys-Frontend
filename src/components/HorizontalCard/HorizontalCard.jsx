@@ -19,14 +19,12 @@ const HorizontalCard = ({ peopleData, dataSource }) => {
           <div className='horizontal-card__body'>
             <div className='horizontal-card__title'>{peopleData.name}</div>
             <p className='horizontal-card__description'>
-              Height: {peopleData.height}
+              Birth Year: {peopleData.birth_year}
             </p>
             <p className='horizontal-card__description'>
-              Mass: {peopleData.mass}
+              Gender: {peopleData.gender}
             </p>
-            <p className='horizontal-card__description'>
-              Hair Color: {peopleData.hair_color}
-            </p>
+
             <div className='horizontal-card__footer'>
               <div className='btn--low'>
                 <Link to={`/people/${getPeoplepId[5]}`} className='btn'>

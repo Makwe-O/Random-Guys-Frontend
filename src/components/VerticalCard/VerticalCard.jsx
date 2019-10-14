@@ -25,12 +25,9 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
               Model: {starshipData.model}
             </p>
             <p className='vertical-card__description'>
-              Manufacturer: {starshipData.manufacturer}
+              Cargo Capacity: {starshipData.cargo_capacity}
             </p>
-            <p className='vertical-card__description'>
-              Cost In Credits:
-              {starshipData.cost_in_credits}
-            </p>
+
             <div className='vertical-card__footer'>
               <Link to={`/starships/${getStarshipId[5]}`} className='btn'>
                 Read More
@@ -57,15 +54,12 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
           <div className='vertical-card__body'>
             <div className='vertical-card__title'>{planetData.name}</div>
             <p className='vertical-card__description'>
-              Rotation Period: {planetData.rotation_period}
+              Temperature: {planetData.temperature}
             </p>
             <p className='vertical-card__description'>
-              Orbital Period: {planetData.orbital_period}
+              Population: {planetData.population}
             </p>
-            <p className='vertical-card__description'>
-              Diameter:
-              {planetData.diameter}
-            </p>
+
             <div className='vertical-card__footer'>
               <Link to={`/planets/${getPlanetId[5]}`} className='btn'>
                 Read More
@@ -94,15 +88,12 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
           <div className='vertical-card__body'>
             <div className='vertical-card__title'>{peopleData.name}</div>
             <p className='vertical-card__description'>
-              Height: {peopleData.height}
+              Birth Year: {peopleData.birth_year}
             </p>
             <p className='vertical-card__description'>
-              Mass: {peopleData.mass}
+              Gender: {peopleData.gender}
             </p>
-            <p className='vertical-card__description'>
-              Hair Color:
-              {peopleData.hair_color}
-            </p>
+
             <div className='vertical-card__footer'>
               <Link to={`/people/${getPeopleId[5]}`} className='btn'>
                 Read More
