@@ -12,6 +12,7 @@ import { starshipData } from '../../selectors/starshipSelectors/starship';
 import { planetData } from '../../selectors/planetSelectors/planet';
 import Skeleton from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const CategoryList = ({
   getPeople,
@@ -40,11 +41,13 @@ const CategoryList = ({
             starshipData.results
               .filter((data, index) => index < 6)
               .map(data => (
-                <VerticalCard
-                  key={data.name}
-                  starshipData={data}
-                  dataSource={'starships'}
-                />
+                <motion.div animate={{ y: 20 }} transition={{ duration: 2 }}>
+                  <VerticalCard
+                    key={data.name}
+                    starshipData={data}
+                    dataSource={'starships'}
+                  />
+                </motion.div>
               ))
           ) : (
             <>

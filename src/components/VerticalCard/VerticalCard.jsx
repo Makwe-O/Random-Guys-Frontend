@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './VerticalCard.scss';
+import { motion } from 'framer-motion';
 const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
   switch (dataSource) {
     case 'starships':
       const getStarshipId = starshipData.url.split('/');
       return (
-        <div className='vertical-card'>
+        <motion.div
+          className='vertical-card'
+          whileHover={{
+            scale: 1.03,
+            transition: { duration: 0.3 }
+          }}
+          whileTap={{ scale: 0.9 }}
+        >
           <img
             src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1571018074/star%20wars/starship-3.jpg'
             alt='#'
@@ -29,12 +37,19 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       );
     case 'planets':
       const getPlanetId = planetData.url.split('/');
       return (
-        <div className='vertical-card'>
+        <motion.div
+          className='vertical-card'
+          whileHover={{
+            scale: 1.03,
+            transition: { duration: 0.3 }
+          }}
+          whileTap={{ scale: 0.9 }}
+        >
           <img
             src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1570838439/star%20wars/planet-1.jpg'
             alt='#'
@@ -57,14 +72,21 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       );
 
     case 'people':
       const getPeopleId = peopleData.url.split('/');
 
       return (
-        <div className='vertical-card'>
+        <motion.div
+          className='vertical-card'
+          whileHover={{
+            scale: 1.03,
+            transition: { duration: 0.3 }
+          }}
+          whileTap={{ scale: 0.9 }}
+        >
           <img
             src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1570656730/star%20wars/character-1.jpg'
             alt='#'
@@ -87,7 +109,7 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       );
 
     default:

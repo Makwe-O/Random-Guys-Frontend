@@ -9,6 +9,7 @@ import {
 } from '../../selectors/categorySelectors/category';
 import Skeleton from 'react-loading-skeleton';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import { motion } from 'framer-motion';
 
 const CategoryPage = ({
   match,
@@ -71,13 +72,15 @@ const CategoryPage = ({
             <div className='three-colum-grid'>
               {categoryData.results ? (
                 filteredCategoryData.map(data => (
-                  <VerticalCard
-                    key={data.name}
-                    starshipData={data}
-                    peopleData={data}
-                    planetData={data}
-                    dataSource={category}
-                  />
+                  <motion.div animate={{ y: 20 }} transition={{ duration: 2 }}>
+                    <VerticalCard
+                      key={data.name}
+                      starshipData={data}
+                      peopleData={data}
+                      planetData={data}
+                      dataSource={category}
+                    />
+                  </motion.div>
                 ))
               ) : (
                 <>
