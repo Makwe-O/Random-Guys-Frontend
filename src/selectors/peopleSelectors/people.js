@@ -15,3 +15,10 @@ export const peopleSearchData = createSelector(
     return peopleReducer.searchResult;
   }
 );
+
+export const peopleSearchParameter = createSelector(
+  [selectPeople],
+  peopleReducer => {
+    return peopleReducer.searchParameter;
+  }
+);

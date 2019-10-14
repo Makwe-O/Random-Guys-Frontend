@@ -7,7 +7,7 @@ export const SEARCH_PLANETS_FAILURE = 'SEARCH_PLANETS_FAILURE';
 
 export const get_planet = () => async dispatch => {
   try {
-    const res = await makeRequest('planets', null, { method: 'GET' });
+    const res = await makeRequest('planets', null, null, { method: 'GET' });
 
     dispatch({
       type: GET_PLANETS_SUCCESS,
@@ -20,12 +20,12 @@ export const get_planet = () => async dispatch => {
   }
 };
 
-export const search_planets = search => async dispatch => {
+export const search_planets = (search, page) => async dispatch => {
   try {
-    const res = await makeRequest('planets', search, { method: 'GET' });
+    const res = await makeRequest('planets', search, page, { method: 'GET' });
     dispatch({
       type: SEARCH_PLANETS_SUCCESS,
-      payload: res
+      payload: { res, search }
     });
   } catch {
     dispatch({

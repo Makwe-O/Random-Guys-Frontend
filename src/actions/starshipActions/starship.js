@@ -7,7 +7,7 @@ export const SEARCH_STARSHIPS_FAILURE = 'SEARCH_STARSHIPS_FAILURE';
 
 export const get_starships = () => async dispatch => {
   try {
-    const res = await makeRequest('starships', null, { method: 'GET' });
+    const res = await makeRequest('starships', null, null, { method: 'GET' });
 
     dispatch({
       type: GET_STARSHIPS_SUCCESS,
@@ -20,13 +20,13 @@ export const get_starships = () => async dispatch => {
   }
 };
 
-export const search_starships = search => async dispatch => {
+export const search_starships = (search, page) => async dispatch => {
   try {
-    const res = await makeRequest('starships', search, { method: 'GET' });
+    const res = await makeRequest('starships', search, page, { method: 'GET' });
 
     dispatch({
       type: SEARCH_STARSHIPS_SUCCESS,
-      payload: res
+      payload: { res, search }
     });
   } catch {
     dispatch({

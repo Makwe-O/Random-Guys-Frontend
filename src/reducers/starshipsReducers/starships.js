@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   starships: [],
-  searchResult: []
+  searchResult: [],
+  searchParameter: ''
 };
 const starshipsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -12,7 +13,8 @@ const starshipsReducer = (state = INITIAL_STATE, action) => {
     case 'SEARCH_STARSHIPS_SUCCESS':
       return {
         ...state,
-        searchResult: action.payload
+        searchResult: action.payload.res,
+        searchParameter: action.payload.search
       };
 
     default:
