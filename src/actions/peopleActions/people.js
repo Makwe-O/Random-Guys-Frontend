@@ -5,14 +5,20 @@ export const GET_PEOPLE_FAILURE = 'GET_PEOPLE_FAILURE';
 export const SEARCH_PEOPLE_SUCCESS = 'SEARCH_PEOPLE_SUCCESS';
 export const SEARCH_PEOPLE_FAILURE = 'SEARCH_PEOPLE_FAILURE';
 
-export const get_people = () => async dispatch => {
+export const get_people = filterParameter => async dispatch => {
   try {
     const res = await makeRequest('people', null, null, { method: 'GET' });
-
-    dispatch({
-      type: GET_PEOPLE_SUCCESS,
-      payload: res
-    });
+    if (filterParameter) {
+      dispatch({
+        type: GET_PEOPLE_SUCCESS,
+        payload: { res, filterParameter }
+      });
+    } else {
+      dispatch({
+        type: GET_PEOPLE_SUCCESS,
+        payload: { res }
+      });
+    }
   } catch {
     dispatch({
       type: GET_PEOPLE_FAILURE

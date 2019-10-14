@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import VerticalCard from '../../components/VerticalCard/VerticalCard';
 import * as catergoryActions from '../../actions/categoryActions/category';
@@ -18,12 +18,22 @@ const CategoryPage = ({
 }) => {
   const { category } = match.params;
 
+  const [filteredCategoryData, setFilteredCategoryData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       await getCategory(category);
     };
     fetchData();
   }, [getCategory, category]);
+
+  useEffect(() => {
+    if (!categoryData.results) {
+      return undefined;
+    } else {
+      setFilteredCategoryData(categoryData.results);
+    }
+  }, [setFilteredCategoryData, categoryData.results]);
 
   const paginateNext = () => {
     getCategory(category, categoryData.next.split('=')[1]);
@@ -32,6 +42,15 @@ const CategoryPage = ({
     getCategory(category, categoryData.previous.split('=')[1]);
   };
 
+  const handleFilter = e => {
+    if (e.target.value === '') {
+      setFilteredCategoryData(categoryData.results);
+    } else {
+      setFilteredCategoryData(
+        categoryData.results.filter(result => result.gender === e.target.value)
+      );
+    }
+  };
   return (
     <>
       {categoryDataError ? (
@@ -41,9 +60,17 @@ const CategoryPage = ({
           <div className='category-section'>
             <h2 className='category-section__title'>{category}</h2>
             <hr />
+            {category === 'people' ? (
+              <select onChange={e => handleFilter(e)}>
+                <option value=''>Select gender</option>
+                <option value='male'>Male</option>
+                <option value='female'>Female</option>
+                <option value='n/a'>Robot</option>
+              </select>
+            ) : null}
             <div className='three-colum-grid'>
               {categoryData.results ? (
-                categoryData.results.map(data => (
+                filteredCategoryData.map(data => (
                   <VerticalCard
                     key={data.name}
                     starshipData={data}
