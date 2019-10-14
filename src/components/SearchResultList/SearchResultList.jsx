@@ -1,10 +1,39 @@
 import React from 'react';
 import VerticalCard from '../VerticalCard/VerticalCard';
+import { connect } from 'react-redux';
+import * as peopleActions from '../../actions/peopleActions/people';
+import * as planetActions from '../../actions/planetActions/planet';
+import * as starshipActions from '../../actions/starshipActions/starship';
+import { createStructuredSelector } from 'reselect';
+import {
+  peopleSearchData,
+  peopleSearchParameter
+} from '../../selectors/peopleSelectors/people';
+import {
+  planetSearchData,
+  planetSearchParameter
+} from '../../selectors/planetSelectors/planet';
+import {
+  starshipSearchData,
+  starshipSearchParameter
+} from '../../selectors/starshipSelectors/starship';
 const SearchResultList = ({
   peopleSearchData,
   planetSearchData,
-  starshipSearchData
+  starshipSearchData,
+  searchPeople,
+  searchPlanets,
+  searchStarships,
+  peopleSearchParameter,
+  planetSearchParameter,
+  starshipSearchParameter
 }) => {
+  const paginateNext = (action, searchParam, dataReuslt) => {
+    action(searchParam, dataReuslt.next.split('=')[2]);
+  };
+  const paginatePrevious = (action, searchParam, dataReuslt) => {
+    action(searchParam, dataReuslt.previous.split('=')[2]);
+  };
   return (
     <div className='container'>
       <div className='category-section'>
@@ -27,6 +56,36 @@ const SearchResultList = ({
             </>
           )}
         </div>
+        <div className='paginate'>
+          {starshipSearchData.previous ? (
+            <button
+              className='btn paginate__previous'
+              onClick={() =>
+                paginatePrevious(
+                  searchStarships,
+                  starshipSearchParameter,
+                  starshipSearchData
+                )
+              }
+            >
+              Previous
+            </button>
+          ) : null}
+          {starshipSearchData.next ? (
+            <button
+              className='btn '
+              onClick={() =>
+                paginateNext(
+                  searchStarships,
+                  starshipSearchParameter,
+                  starshipSearchData
+                )
+              }
+            >
+              next
+            </button>
+          ) : null}
+        </div>
       </div>
 
       <div className='category-section'>
@@ -46,6 +105,36 @@ const SearchResultList = ({
               <div style={{ textAlign: 'center' }}>No results for Planets</div>
             </>
           )}
+        </div>
+        <div className='paginate'>
+          {planetSearchData.previous ? (
+            <button
+              className='btn paginate__previous'
+              onClick={() =>
+                paginatePrevious(
+                  searchPlanets,
+                  planetSearchParameter,
+                  planetSearchData
+                )
+              }
+            >
+              Previous
+            </button>
+          ) : null}
+          {planetSearchData.next ? (
+            <button
+              className='btn '
+              onClick={() =>
+                paginateNext(
+                  searchPlanets,
+                  planetSearchParameter,
+                  planetSearchData
+                )
+              }
+            >
+              next
+            </button>
+          ) : null}
         </div>
       </div>
 
@@ -67,9 +156,54 @@ const SearchResultList = ({
             </>
           )}
         </div>
+        <div className='paginate'>
+          {peopleSearchData.previous ? (
+            <button
+              className='btn paginate__previous'
+              onClick={() =>
+                paginatePrevious(
+                  searchPeople,
+                  peopleSearchParameter,
+                  peopleSearchData
+                )
+              }
+            >
+              Previous
+            </button>
+          ) : null}
+          {peopleSearchData.next ? (
+            <button
+              className='btn '
+              onClick={() =>
+                paginateNext(
+                  searchPeople,
+                  peopleSearchParameter,
+                  peopleSearchData
+                )
+              }
+            >
+              next
+            </button>
+          ) : null}
+        </div>
       </div>
     </div>
   );
 };
-
-export default SearchResultList;
+const mapDispatchToProps = {
+  searchPeople: peopleActions.search_people,
+  searchPlanets: planetActions.search_planets,
+  searchStarships: starshipActions.search_starships
+};
+const mapStateToProps = createStructuredSelector({
+  peopleSearchData,
+  planetSearchData,
+  starshipSearchData,
+  peopleSearchParameter,
+  planetSearchParameter,
+  starshipSearchParameter
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchResultList);

@@ -38,3 +38,10 @@ a {
     width: 100%;
   }
 }
+
+.paginate{
+  text-align: center;
+  &__previous{
+    margin-right:2rem
+  }
+}

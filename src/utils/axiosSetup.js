@@ -4,11 +4,11 @@ export const apiInstance = axios.create({
   baseURL: 'https://swapi.co/api/'
 });
 
-const makeRequest = (url, searchTerm, options = { method: 'GET' }) => {
+const makeRequest = (url, searchTerm, page, options = { method: 'GET' }) => {
   return apiInstance({
     url,
     method: options.method,
-    params: { search: searchTerm }
+    params: { search: searchTerm, page }
   }).then(response => response.data);
 };
 

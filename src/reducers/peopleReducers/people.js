@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   people: [],
-  searchResult: []
+  searchResult: [],
+  searchParameter: ''
 };
 const peopleReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -13,7 +14,8 @@ const peopleReducer = (state = INITIAL_STATE, action) => {
     case 'SEARCH_PEOPLE_SUCCESS':
       return {
         ...state,
-        searchResult: action.payload
+        searchResult: action.payload.res,
+        searchParameter: action.payload.search
       };
 
     default:

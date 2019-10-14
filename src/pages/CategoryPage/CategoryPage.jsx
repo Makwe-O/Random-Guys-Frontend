@@ -25,6 +25,13 @@ const CategoryPage = ({
     fetchData();
   }, [getCategory, category]);
 
+  const paginateNext = () => {
+    getCategory(category, categoryData.next.split('=')[1]);
+  };
+  const paginatePrevious = () => {
+    getCategory(category, categoryData.previous.split('=')[1]);
+  };
+
   return (
     <>
       {categoryDataError ? (
@@ -67,6 +74,21 @@ const CategoryPage = ({
                   </div>
                 </>
               )}
+            </div>
+            <div className='paginate'>
+              {categoryData.previous ? (
+                <button
+                  className='btn paginate__previous'
+                  onClick={() => paginatePrevious()}
+                >
+                  Previous
+                </button>
+              ) : null}
+              {categoryData.next ? (
+                <button className='btn ' onClick={() => paginateNext()}>
+                  next
+                </button>
+              ) : null}
             </div>
           </div>
         </div>

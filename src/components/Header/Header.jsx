@@ -25,10 +25,24 @@ const Header = ({ history, searchPeople, searchPlanets, searchStarships }) => {
     <div className='header'>
       <div className='container'>
         <div className='logo'>
-          <Link to='/'>Logo</Link>
+          <Link to='/'>
+            <img
+              className='header__logo'
+              src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1571016866/star%20wars/logo.png'
+              alt='logo'
+            />
+          </Link>
         </div>
         <div className='header__container'>
-          <h1 className='header__title'>Star Wars Directory</h1>
+          <h1 className='header__title'>
+            {' '}
+            <img
+              className='header__logo'
+              src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1571016866/star%20wars/logo.png'
+              alt='logo'
+            />
+            <span>Directory</span>
+          </h1>
           <h3 className='header__subtitle'>
             Find your favorite Characters, Films, Species, StarShip and Planets
           </h3>
@@ -39,9 +53,9 @@ const Header = ({ history, searchPeople, searchPlanets, searchStarships }) => {
               handleSubmit(e);
             }}
           >
-            <div className='header-form__search-icon'>
+            <button type='submit' className='header-form__search-icon'>
               <SearcIcon />
-            </div>
+            </button>
             <span>
               <input
                 onChange={e => {

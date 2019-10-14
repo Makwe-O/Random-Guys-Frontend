@@ -8,7 +8,7 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
       return (
         <div className='vertical-card'>
           <img
-            src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1570838439/star%20wars/planet-1.jpg'
+            src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1571018074/star%20wars/starship-3.jpg'
             alt='#'
           />
           <div className='vertical-card__body'>
@@ -36,7 +36,7 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
       return (
         <div className='vertical-card'>
           <img
-            src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1570648427/star%20wars/hero-banner.jpg'
+            src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1570838439/star%20wars/planet-1.jpg'
             alt='#'
           />
           <div className='vertical-card__body'>
@@ -66,7 +66,7 @@ const VerticalCard = ({ dataSource, starshipData, planetData, peopleData }) => {
       return (
         <div className='vertical-card'>
           <img
-            src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1570648427/star%20wars/hero-banner.jpg'
+            src='https://res.cloudinary.com/dnavbc7ny/image/upload/v1570656730/star%20wars/character-1.jpg'
             alt='#'
           />
           <div className='vertical-card__body'>

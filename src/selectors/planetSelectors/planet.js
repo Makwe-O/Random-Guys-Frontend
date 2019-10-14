@@ -15,3 +15,10 @@ export const planetSearchData = createSelector(
     return planetsReducer.searchResult;
   }
 );
+
+export const planetSearchParameter = createSelector(
+  [selectPlanet],
+  planetsReducer => {
+    return planetsReducer.searchParameter;
+  }
+);

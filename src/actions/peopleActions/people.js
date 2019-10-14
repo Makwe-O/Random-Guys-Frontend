@@ -7,7 +7,7 @@ export const SEARCH_PEOPLE_FAILURE = 'SEARCH_PEOPLE_FAILURE';
 
 export const get_people = () => async dispatch => {
   try {
-    const res = await makeRequest('people', null, { method: 'GET' });
+    const res = await makeRequest('people', null, null, { method: 'GET' });
 
     dispatch({
       type: GET_PEOPLE_SUCCESS,
@@ -20,12 +20,12 @@ export const get_people = () => async dispatch => {
   }
 };
 
-export const search_people = search => async dispatch => {
+export const search_people = (search, page) => async dispatch => {
   try {
-    const res = await makeRequest('people', search, { method: 'GET' });
+    const res = await makeRequest('people', search, page, { method: 'GET' });
     dispatch({
       type: SEARCH_PEOPLE_SUCCESS,
-      payload: res
+      payload: { res, search }
     });
   } catch {
     dispatch({
