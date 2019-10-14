@@ -28,7 +28,7 @@ const HorizontalCard = ({ peopleData, dataSource }) => {
               Hair Color: {peopleData.hair_color}
             </p>
             <div className='horizontal-card__footer'>
-              <div>
+              <div className='btn--low'>
                 <Link to={`/people/${getPeoplepId[5]}`} className='btn'>
                   Read More
                 </Link>
