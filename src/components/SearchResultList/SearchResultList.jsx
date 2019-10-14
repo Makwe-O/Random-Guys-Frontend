@@ -17,6 +17,8 @@ import {
   starshipSearchData,
   starshipSearchParameter
 } from '../../selectors/starshipSelectors/starship';
+import { motion } from 'framer-motion';
+
 const SearchResultList = ({
   peopleSearchData,
   planetSearchData,
@@ -42,11 +44,13 @@ const SearchResultList = ({
         <div className='three-colum-grid'>
           {starshipSearchData.count > 0 ? (
             starshipSearchData.results.map(data => (
-              <VerticalCard
-                key={data.name}
-                starshipData={data}
-                dataSource={'starships'}
-              />
+              <motion.div animate={{ y: 20 }} transition={{ duration: 2 }}>
+                <VerticalCard
+                  key={data.name}
+                  starshipData={data}
+                  dataSource={'starships'}
+                />
+              </motion.div>
             ))
           ) : (
             <>
@@ -94,11 +98,13 @@ const SearchResultList = ({
         <div className='three-colum-grid'>
           {planetSearchData.count > 0 ? (
             planetSearchData.results.map(data => (
-              <VerticalCard
-                key={data.name}
-                planetData={data}
-                dataSource={'planets'}
-              />
+              <motion.div animate={{ y: 20 }} transition={{ duration: 2 }}>
+                <VerticalCard
+                  key={data.name}
+                  planetData={data}
+                  dataSource={'planets'}
+                />
+              </motion.div>
             ))
           ) : (
             <>
@@ -144,11 +150,13 @@ const SearchResultList = ({
         <div className='three-colum-grid'>
           {peopleSearchData.count > 0 ? (
             peopleSearchData.results.map(data => (
-              <VerticalCard
-                key={data.name}
-                peopleData={data}
-                dataSource={'people'}
-              />
+              <motion.div animate={{ y: 20 }} transition={{ duration: 2 }}>
+                <VerticalCard
+                  key={data.name}
+                  peopleData={data}
+                  dataSource={'people'}
+                />
+              </motion.div>
             ))
           ) : (
             <>

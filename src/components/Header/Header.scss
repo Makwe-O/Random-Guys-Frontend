@@ -54,11 +54,12 @@
   justify-content: center;
   & svg {
     position: relative;
-    top: 5px;
+    cursor: pointer;
   }
   &__search-icon {
     height: auto;
     background: #edf2f7;
+    border: none;
     width: 20px;
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
