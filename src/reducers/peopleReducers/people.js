@@ -6,10 +6,19 @@ const INITIAL_STATE = {
 const peopleReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'GET_PEOPLE_SUCCESS':
-      return {
-        ...state,
-        people: action.payload
-      };
+      if (action.payload.filterParameter) {
+        return {
+          ...state,
+          people: action.payload.res.results.filter(
+            result => result.gender === action.payload.filterParameter
+          )
+        };
+      } else {
+        return {
+          ...state,
+          people: action.payload.res
+        };
+      }
 
     case 'SEARCH_PEOPLE_SUCCESS':
       return {
